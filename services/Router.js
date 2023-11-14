@@ -25,17 +25,14 @@ const Router = {
 		let content = null;
 		switch (path) {
 			case "/":
-				content = document.createElement("h1");
-				content.textContent = "Menu";
+				content = document.createElement("menu-page");
 				break;
 			case "/order":
-				content = document.createElement("h1");
-				content.textContent = "Your Order";
+				content = document.createElement("order-page");
 				break;
 			default:
 				if (path.startsWith("/product/")) {
-					content = document.createElement("h1");
-					content.textContent = "Details";
+					content = document.createElement("details-page");
 					const paramId = path.substring(path.lastIndexOf("/") + 1);
 					content.dataset.id = paramId;
 				}
