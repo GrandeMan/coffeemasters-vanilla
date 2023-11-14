@@ -6,14 +6,14 @@ const Store = {
 const proxiedStore = new Proxy(Store, {
 	set(target, property, value) {
 		target[property] = value;
-		if (property === "menu") {
+		if (property == "menu") {
 			window.dispatchEvent(new CustomEvent("menu-updated"));
 		}
-		if (property === "cart") {
+		if (property == "cart") {
 			window.dispatchEvent(new CustomEvent("cart-updated"));
 		}
 		return true;
 	},
 });
 
-export default proxiedStore;
+export { proxiedStore };
